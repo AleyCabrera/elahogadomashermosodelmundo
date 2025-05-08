@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>El ahogado más hermoso del mundo - Gabriel García Márquez</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Playfair+Display:wght@700&display=swap');
+
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --sand: #f5e7cb;
+            --ocean: #1abc9c;
+        }
+
+        body {
+            font-family: 'Merriweather', serif;
+            line-height: 1.8;
+            color: #333;
+            background-color: var(--sand);
+            margin: 0;
+            padding: 0;
+            background-image: url('https://images.unsplash.com/photo-1505118380757-91f5f5632de0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: overlay;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 10px;
+            background: linear-gradient(90deg, var(--secondary), var(--ocean));
+        }
+
+        h1,
+        h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        h1::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 25%;
+            right: 25%;
+            height: 3px;
+            background: var(--secondary);
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 3rem;
+            color: var(--ocean);
+            border-left: 4px solid var(--secondary);
+            padding-left: 1rem;
+            animation: slideIn 1s ease-out;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+            animation: fadeInParagraph 2s ease-in;
+        }
+
+        .author {
+            text-align: center;
+            font-style: italic;
+            margin-bottom: 3rem;
+            color: var(--dark);
+            font-size: 1.2rem;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .wave-divider {
+            height: 50px;
+            width: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z' opacity='.25' fill='%231abc9c'%3E%3C/path%3E%3Cpath d='M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z' opacity='.5' fill='%231abc9c'%3E%3C/path%3E%3Cpath d='M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z' fill='%231abc9c'%3E%3C/path%3E%3C/svg%3E");
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin: 3rem 0;
+            opacity: 0.7;
+        }
+
+        .quote {
+            font-style: italic;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            background-color: rgba(26, 188, 156, 0.1);
+            border-left: 4px solid var(--ocean);
+            position: relative;
+            animation: pulse 5s infinite;
+        }
+
+        .quote::before {
+            content: '"';
+            font-size: 4rem;
+            position: absolute;
+            left: 10px;
+            top: -10px;
+            color: rgba(26, 188, 156, 0.2);
+        }
+
+        .quote::after {
+            content: '"';
+            font-size: 4rem;
+            position: absolute;
+            right: 10px;
+            bottom: -30px;
+            color: rgba(26, 188, 156, 0.2);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 1rem;
+            color: var(--light);
+            background-color: var(--dark);
+            border-radius: 0 0 5px 5px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInParagraph {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                background-color: rgba(26, 188, 156, 0.1);
+            }
+
+            50% {
+                background-color: rgba(26, 188, 156, 0.2);
+            }
+
+            100% {
+                background-color: rgba(26, 188, 156, 0.1);
+            }
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .highlight {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0) 50%, rgba(26, 188, 156, 0.3) 50%);
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+                margin: 0.5rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Scroll effects */
+        .fade-in {
+            opacity: 0;
+            transition: opacity 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+        }
+
+        /* Sound Controls */
+    .sound-control {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 1000;
+    }
+
+    #soundToggle {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: var(--primary);
+        color: white;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+    }
+
+    #soundToggle:hover {
+        background-color: var(--secondary);
+        transform: scale(1.1);
+    }
+
+    .sound-tooltip {
+        position: absolute;
+        right: 60px;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: var(--primary);
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 0.8rem;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+        white-space: nowrap;
+    }
+
+    #soundToggle:hover+.sound-tooltip {
+        opacity: 1;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="floating">El ahogado más hermoso del mundo</h1>
+        <div class="author">Gabriel García Márquez</div>
+
+        <div class="wave-divider"></div>
+
+        <p class="fade-in">Los primeros niños que vieron el promontorio oscuro y sigiloso que se acercaba por el mar, se
+            hicieron la ilusión de que era un barco enemigo. Después vieron que no llevaba banderas ni arboladura, y
+            pensaron que fuera una ballena. Pero cuando quedó varado en la playa le quitaron los matorrales de sargazos,
+            los filamentos de medusas y los restos de cardúmenes y naufragios que llevaba encima, y sólo entonces
+            descubrieron que era un ahogado.</p>
+
+        <p class="fade-in">Habían jugado con él toda la tarde, enterrándolo y desenterrándolo en la arena, cuando
+            alguien los vio por casualidad y dio la voz de alarma en el pueblo. Los hombres que lo cargaron hasta la
+            casa más próxima notaron que pesaba más que todos los muertos conocidos, casi tanto como un caballo, y se
+            dijeron que tal vez había estado demasiado tiempo a la deriva y el agua se le había metido dentro de los
+            huesos. Cuando lo tendieron en el suelo vieron que había sido mucho más grande que todos los hombres, pues
+            apenas si cabía en la casa, pero pensaron que tal vez la facultad de seguir creciendo después de la muerte
+            estaba en la naturaleza de ciertos ahogados. Tenía el olor del mar, y sólo la forma permitía suponer que era
+            el cadáver de un ser humano, porque su piel estaba revestida de una coraza de rémora y de lodo.</p>
+
+        <p class="fade-in">No tuvieron que limpiarle la cara para saber que era un muerto ajeno. El pueblo tenía apenas
+            unas veinte casas de tablas, con patios de piedras sin flores, desperdigadas en el extremo de un cabo
+            desértico. La tierra era tan escasa, que las madres andaban siempre con el temor de que el viento se llevara
+            a los niños, y a los pocos muertos que les iban causando los años tenían que tirarlos en los acantilados.
+            Pero el mar era manso y pródigo, y todos los hombres cabían en siete botes. Así que cuando encontraron el
+            ahogado les bastó con mirarse los unos a los otros para darse cuenta de que estaban completos.</p>
+
+        <div class="quote fade-in">
+            Aquella noche no salieron a trabajar en el mar. Mientras los hombres averiguaban si no faltaba alguien en
+            los pueblos vecinos, las mujeres se quedaron cuidando el ahogado.
+        </div>
+
+        <p class="fade-in">Le quitaron el lodo con tapones de esparto, le desenredaron del cabello los abrojos
+            submarinos y le rasparon la rémora con fierros de desescamar pescados. A medida que lo hacían, notaron que
+            su vegetación era de océanos remotos y de aguas profundas, y que sus ropas estaban en piltrafas, como si
+            hubiera navegado por entre laberintos de corales. Notaron también que sobrellevaba la muerte con altivez,
+            pues no tenía el semblante solitario de otros ahogados de mar, ni tampoco la catadura sórdida y menesterosa
+            de los ahogados fluviales. Pero solamente cuando acabaron de limpiarlo tuvieron conciencia de la clase de
+            hombre que era, y entonces se quedaron sin aliento. No sólo era el más alto, el más fuerte, el más viril y
+            el mejor armado que habían visto jamás, sino que todavía cuando lo estaban viendo no les cabía en la
+            imaginación.</p>
+
+        <p class="fade-in">No encontraron en el pueblo una cama bastante grande para tenderlo ni una mesa bastante
+            sólida para velarlo. No le vinieron los pantalones de fiesta de los hombres más altos, ni las camisas
+            dominicales de los más corpulentos, ni los zapatos del mejor plantado. Fascinadas por su desproporción y su
+            hermosura, las mujeres decidieron entonces hacerle unos pantalones con un buen pedazo de vela cangreja, y
+            una camisa de bramante de novia, para que pudiera continuar su muerte con dignidad. Mientras cosían sentadas
+            en círculo, contemplando el cadáver entre puntada y puntada, les parecía que el viento no había sido nunca
+            tan tenaz ni el Caribe había estado nunca tan ansioso como aquella noche, y suponían que esos cambios tenían
+            algo que ver con el muerto.</p>
+
+        <p class="fade-in">Pensaban que si aquel hombre magnífico hubiera vivido en el pueblo, su casa habría tenido las
+            puertas más anchas, el techo más alto y el piso más firme, y el bastidor de su cama habría sido de cuadernas
+            maestras con pernos de hierro, y su mujer habría sido la más feliz. Pensaban que habría tenido tanta
+            autoridad que hubiera sacado los peces del mar con sólo llamarlos por sus nombres, y habría puesto tanto
+            empeño en el trabajo que hubiera hecho brotar manantiales de entre las piedras más áridas y hubiera podido
+            sembrar flores en los acantilados. Lo compararon en secreto con sus propios hombres, pensando que no serían
+            capaces de hacer en toda una vida lo que aquel era capaz de hacer en una noche, y terminaron por repudiarlos
+            en el fondo de sus corazones como los seres más escuálidos y mezquinos de la tierra. Andaban extraviadas por
+            esos dédalos de fantasía, cuando la más vieja de las mujeres, que por ser la más vieja había contemplado al
+            ahogado con menos pasión que compasión, suspiró:</p>
+
+        <div class="quote fade-in">
+            - Tiene cara de llamarse Esteban.
+        </div>
+
+        <p class="fade-in">Era verdad. A la mayoría le bastó con mirarlo otra vez para comprender que no podía tener
+            otro nombre. Las más porfiadas, que eran las más jóvenes, se mantuvieron con la ilusión de que al ponerle la
+            ropa, tendido entre flores y con unos zapatos de charol, pudiera llamarse Lautaro. Pero fue una ilusión
+            vana. El lienzo resultó escaso, los pantalones mal cortados y peor cosidos le quedaron estrechos, y las
+            fuerzas ocultas de su corazón hacían saltar los botones de la camisa. Después de la media noche se
+            adelgazaron los silbidos del viento y el mar cayó en el sopor del miércoles. El silencio acabó con las
+            últimas dudas: era Esteban. Las mujeres que lo habían vestido, las que lo habían peinado, las que le habían
+            cortado las uñas y raspado la barba no pudieron reprimir un estremecimiento de compasión cuando tuvieron que
+            resignarse a dejarlo tirado por los suelos.</p>
+
+        <p class="fade-in">Fue entonces cuando comprendieron cuánto debió haber sido de infeliz con aquel cuerpo
+            descomunal, si hasta después de muerto le estorbaba. Lo vieron condenado en vida a pasar de medio lado por
+            las puertas, a descalabrarse con los travesaños, a permanecer de pie en las visitas sin saber qué hacer con
+            sus tiernas y rosadas manos de buey de mar, mientras la dueña de la casa buscaba la silla más resistente y
+            le suplicaba muerta de miedo "siéntese aquí, Esteban, hágame favor", y él recostado contra las paredes,
+            sonriendo, "no se preocupe, señora, así estoy bien", con los talones en carne viva y las espaldas escaldadas
+            de tanto repetir lo mismo en todas la visitas, "no se preocupe, señora, así estoy bien", sólo para no pasar
+            la vergüenza de desbaratar la silla, y acaso sin haber sabido nunca que quienes le decían "no te vayas,
+            Esteban, espérate siquiera que hierva el café", eran los mismos que después susurraban "ya se fue el bobo
+            grande, qué bueno, ya se fue el tonto hermoso". Esto pensaban las mujeres frente al cadáver un poco antes
+            del amanecer. Más tarde, cuando le taparon la cara con un pañuelo para que no le molestara la luz, lo vieron
+            tan muerto para siempre, tan indefenso, tan parecido a sus hombres, que se les abrieron las primeras grietas
+            de lágrimas en el corazón. Fue una de las más jóvenes la que empezó a sollozar. Las otras, alentándose entre
+            sí, pasaron de los suspiros a los lamentos, y mientras más sollozaban más deseos sentían de llorar, porque
+            el ahogado se les iba volviendo cada vez más Esteban, hasta que lo lloraron tanto que fue el hombre más
+            desvalido de la tierra, el más manso y el más servicial, el pobre Esteban. Así que cuando los hombres
+            volvieron con la noticia de que el ahogado no era tampoco de los pueblos vecinos, ellas sintieron un vacío
+            de júbilo entre las lágrimas.</p>
+
+        <div class="quote fade-in">
+            - ¡Bendito sea Dios –suspiraron-: es nuestro!
+        </div>
+
+        <p class="fade-in">Los hombres creyeron que aquellos aspavientos no eran más que frivolidades de mujer. Cansados
+            de las tortuosas averiguaciones de la noche, lo único que querían era quitarse de una vez el estorbo del
+            intruso antes de que prendiera el sol bravo de aquel día árido y sin viento. Improvisaron unas angarillas
+            con restos de trinquetes y botavaras, y las amarraron con carlingas de altura, para que resistieran el peso
+            del cuerpo hasta los acantilados. Quisieron encadenarle a los tobillos un ancla de buque mercante para que
+            fondeara sin tropiezos en los mares más profundos donde los peces son ciegos y los buzos se mueren de
+            nostalgia, de manera que las malas corrientes no fueran a devolverlo a la orilla, como había sucedido con
+            otros cuerpos. Pero mientras más se apresuraban, más cosas se les ocurrían a las mujeres para perder el
+            tiempo. Andaban como gallinas asustadas picoteando amuletos de mar en los arcones, unas estorbando por aquí
+            porque querían ponerle al ahogado los escapularios del buen viento, otras estorbando allá para abrocharle
+            una pulsera de orientación, y al cabo de tanto "quítate de ahí, mujer, ponte donde no estorbes, mira que
+            casi me haces caer sobre el difunto", a los hombres se les subieron al hígado las suspicacias y empezaron a
+            rezongar que con qué objeto tanta ferretería de altar mayor para un forastero, si por muchos estoperoles y
+            calderetas que llevara encima se lo iban a masticar los tiburones, pero ellas seguían tripotando sus
+            reliquias de pacotilla, llevando y trayendo, tropezando, mientras se les iba en suspiros lo que no se les
+            iba en lágrimas, así que los hombres terminaron por despotricar que de cuándo acá semejante alboroto por un
+            muerto al garete, un ahogado de nadie, un fiambre de mierda. Una de las mujeres, mortificada por tanta
+            indolencia, le quitó entonces al cadáver el pañuelo de la cara, y también los hombres se quedaron sin
+            aliento.</p>
+
+        <p class="fade-in">Era Esteban. No hubo que repetirlo para que lo reconocieran. Si les hubieran dicho Sir Walter
+            Raleigh, quizás hasta ellos se habrían impresionado con su acento de gringo, con su guacamaya en el hombro,
+            con su arcabuz de matar caníbales, pero Esteban solamente podía ser uno en el mundo, y allí estaba tirado
+            como un sábalo, sin botines, con unos pantalones de sietemesino y esas uñas rocallosas que sólo podían
+            cortarse a cuchillo. Bastó con que le quitaran el pañuelo de la cara para darse cuenta de que estaba
+            avergonzado, de que no tenía la culpa de ser tan grande, ni tan pesado, ni tan hermoso, y si hubiera sabido
+            que aquello iba a suceder habría buscado un lugar más discreto para ahogarse, "en serio, me hubiera amarrado
+            yo mismo un âncora de galeón en el cuello y hubiera trastabilidado como quien no quiere la cosa por los
+            acantilados, para no andar ahora estorbando con este muerto de miércoles, como ustedes dicen, para no
+            molestar a nadie con esta porquería de fiambre que no tiene nada que ver conmigo". Había tanta verdad en su
+            modo de estar, que hasta los hombres más suspicaces, los que sentían amargas las minuciosas noches del mar
+            temiendo que sus mujeres se cansaran de soñar con ellos para soñar con los ahogados, hasta esos, y otros más
+            duros, se estremecieron en los tuétanos con la sinceridad de Esteban.</p>
+
+        <p class="fade-in">Fue así como le hicieron los funerales más espléndidos que podían concebirse para un ahogado
+            expósito. Algunas mujeres que habían ido a buscar flores en los pueblos vecinos regresaron con otras que no
+            creían lo que les contaban, y éstas se fueron por más flores cuando vieron al muerto, y llevaron más y más,
+            hasta que hubo tantas flores y tanta gente que apenas si se podía caminar. A última hora les dolió
+            devolverlo huérfano a las aguas, y le dieron un padre y una madres entre los mejores, y otros se le hicieron
+            hermanos, tíos y primos, así que a través de él todos los habitantes del pueblo terminaron por ser parientes
+            entre sí. Algunos marineros que oyeron el llanto a distancia perdieron la certeza del rumbo, y se supo de
+            uno que se hizo amarrar al palo mayor, recordando antiguas fábulas de sirenas. Mientras se disputaban el
+            privilegio de llevarlo en hombros por la pendiente escarpada de los acantilados, hombres y mujeres tuvieron
+            conciencia por primera vez de la desolación de sus calles, la aridez de sus patios, la estrechez de sus
+            sueños, frente al esplendor y la hermosura de su ahogado. Lo soltaron sin ancla, para que volviera si
+            quería, y cuando lo quisiera, y todos retuvieron el aliento durante la fracción de siglos que demoró la
+            caída del cuerpo hasta el abismo. No tuvieron la necesidad de mirarse los unos a los otros para darse cuenta
+            de que ya no estaban completos, ni volverían a estarlo jamás. Pero también sabían que todo sería diferente
+            desde entonces, que sus casas iban a tener las puertas más anchas, los techos más altos, los pisos más
+            firmes, para que el recuerdo de Esteban pudiera andar por todas partes sin tropezar con los travesaños, y
+            que nadie se atreviera a susurrar en el futuro "ya murió el bobo grande, qué lástima, ya murió el tonto
+            hermoso", porque ellos iban a pintar la fachadas de colores alegres para eternizar la memoria de Esteban y
+            se iban a romper el espinazo excavando manantiales en las piedras y sembrando flores en los acantilados,
+            para que en los amaneceres de los años venturos los pasajeros de los grandes barcos despertaran sofocados
+            por un olor de jardines en altamar, y el capitán tuviera que bajar de su alcázar con su uniforme de gala,
+            con su astrolabio, su estrella polar y su ristra de medallas de guerra, y señalando el promontorio de rosas
+            en el horizonte del Caribe dijera en catorce idiomas, "miren allá, donde el viento es ahora tan manso que se
+            queda a dormir bajo las camas, allá, donde el sol brilla tanto que no saben hacia dónde mirar los girasoles,
+            sí, allá, es el pueblo de Esteban".</p>
+
+        <div class="wave-divider"></div>
+
+        <div class="footer">
+            © 2025 - El ahogado más hermoso del mundo - Gabriel García Márquez
+        </div>
+
+        <!-- Audio Elements -->
+        <audio id="wavesSound" loop>
+            <source src="/assets/sound/mar.MP3" type="audio/mpeg">
+            Tu navegador no soporta audio HTML5.
+        </audio>
+        
+        <audio id="villageSound">
+            <source src="village.mp3" type="audio/mpeg">
+        </audio>
+        
+        <!-- Control de Sonido Flotante -->
+        <div class="sound-control">
+            <button id="soundToggle" aria-label="Toggle sound">
+                <i class="fas fa-volume-up"></i>
+            </button>
+            <div class="sound-tooltip">Sonidos ambientales</div>
+        </div>
+    </div>
+
+    <script>
+        // Scroll animation for paragraphs
+        document.addEventListener('DOMContentLoaded', function () {
+            const fadeElements = document.querySelectorAll('.fade-in');
+
+            const fadeInOnScroll = function () {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+
+                    if (elementTop < windowHeight - 100) {
+                        element.classList.add('visible');
+                    }
+                });
+            };
+
+            window.addEventListener('scroll', fadeInOnScroll);
+            fadeInOnScroll(); // Trigger on load for elements already in view
+
+            // Highlight random phrases every few seconds
+            setInterval(() => {
+                const paragraphs = document.querySelectorAll('p');
+                const randomParagraph = paragraphs[Math.floor(Math.random() * paragraphs.length)];
+                const words = randomParagraph.textContent.split(' ');
+
+                if (words.length > 10) {
+                    const start = Math.floor(Math.random() * (words.length - 5));
+                    const end = start + Math.floor(Math.random() * 5) + 2;
+
+                    // Remove previous highlights
+                    paragraphs.forEach(p => {
+                        p.innerHTML = p.textContent;
+                    });
+
+                    // Apply new highlight
+                    let highlightedText = '';
+                    for (let i = 0; i < words.length; i++) {
+                        if (i >= start && i <= end) {
+                            highlightedText += `<span class="highlight">${words[i]}</span> `;
+                        } else {
+                            highlightedText += `${words[i]} `;
+                        }
+                    }
+
+                    randomParagraph.innerHTML = highlightedText;
+                }
+            }, 8000);
+        });
+
+        // Audio Control
+            document.addEventListener('DOMContentLoaded', function () {
+                // Audio elements
+                const wavesSound = document.getElementById('wavesSound');
+                const villageSound = document.getElementById('villageSound');
+                const soundToggle = document.getElementById('soundToggle');
+                const soundIcon = soundToggle.querySelector('i');
+
+                // Sound state
+                let isSoundOn = false;
+                let currentSound = wavesSound;
+
+                // Try to enable audio (many browsers block autoplay)
+                function enableAudio() {
+                    wavesSound.volume = 0.3;
+                    villageSound.volume = 0.2;
+
+                    // Try to play (will fail without user interaction)
+                    const promise = wavesSound.play();
+
+                    if (promise !== undefined) {
+                        promise.catch(error => {
+                            // Auto-play was prevented, wait for user interaction
+                            isSoundOn = false;
+                            updateSoundIcon();
+                        });
+                    }
+                }
+
+                // Update sound icon based on state
+                function updateSoundIcon() {
+                    if (isSoundOn) {
+                        soundIcon.classList.remove('fa-volume-mute');
+                        soundIcon.classList.add('fa-volume-up');
+                    } else {
+                        soundIcon.classList.remove('fa-volume-up');
+                        soundIcon.classList.add('fa-volume-mute');
+                    }
+                }
+
+                // Toggle sound on/off
+                function toggleSound() {
+                    isSoundOn = !isSoundOn;
+
+                    if (isSoundOn) {
+                        currentSound.play().catch(error => {
+                            console.error("Audio playback failed:", error);
+                            isSoundOn = false;
+                        });
+                    } else {
+                        wavesSound.pause();
+                        villageSound.pause();
+                    }
+
+                    updateSoundIcon();
+                }
+
+                // Change ambient sound
+                function changeAmbientSound(newSound) {
+                    if (currentSound === newSound) return;
+
+                    const wasPlaying = !currentSound.paused;
+                    currentSound.pause();
+                    currentSound.currentTime = 0;
+
+                    currentSound = newSound;
+
+                    if (wasPlaying && isSoundOn) {
+                        currentSound.play().catch(error => {
+                            console.error("Audio playback failed:", error);
+                        });
+                    }
+                }
+
+                // Randomly change between sounds every few minutes
+                function randomizeAmbientSound() {
+                    if (Math.random() > 0.5) {
+                        changeAmbientSound(wavesSound);
+                    } else {
+                        changeAmbientSound(villageSound);
+                    }
+
+                    // Change again in 3-5 minutes
+                    setTimeout(randomizeAmbientSound, 180000 + Math.random() * 120000);
+                }
+
+                // Event listeners
+                soundToggle.addEventListener('click', toggleSound);
+
+                // Tooltip hover effect
+                soundToggle.addEventListener('mouseenter', function () {
+                    document.querySelector('.sound-tooltip').style.opacity = '1';
+                });
+
+                soundToggle.addEventListener('mouseleave', function () {
+                    document.querySelector('.sound-tooltip').style.opacity = '0';
+                });
+
+                // Initialize
+                enableAudio();
+                updateSoundIcon();
+
+                // Start randomizing sounds after initial delay
+                setTimeout(randomizeAmbientSound, 300000);
+
+                // Play village sounds at certain scroll points (optional)
+                window.addEventListener('scroll', function () {
+                    const scrollPosition = window.scrollY || window.pageYOffset;
+                    const documentHeight = document.documentElement.scrollHeight;
+                    const windowHeight = window.innerHeight;
+                    const scrollPercent = scrollPosition / (documentHeight - windowHeight);
+
+                    // Play village sound when reaching certain points in the story
+                    if (scrollPercent > 0.4 && scrollPercent < 0.6 && isSoundOn) {
+                        changeAmbientSound(villageSound);
+                    } else if (isSoundOn) {
+                        changeAmbientSound(wavesSound);
+                    }
+                });
+            });
+    </script>
+</body>
+
+</html>

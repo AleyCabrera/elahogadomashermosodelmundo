@@ -15,19 +15,29 @@
 
 <body>
     <header>
-        <div class="container">
-            <h1 class="logo">El Ahogado más Hermoso</h1>
-            <nav>
-                <ul>
-                    <li><a href="#hero">Inicio</a></li>
-                    <li><a href="#story">El Cuento</a></li>
-                    <li><a href="#analysis">Análisis</a></li>
-                    <li><a href="#author">Sobre García Márquez</a></li>
-                    <li><a href="#blog">Blog</a></li>
+        <div class="header-container">
+            <div class="logo-container">
+                <a href="#hero" class="logo-link">
+                    <img src="../assets/image/logo.png" alt="Logo del blog" class="logo-img">
+                    <div class="logo-text-container">
+                        <h1 class="logo-text">El Ahogado más Hermoso</h1>
+                        <p class="logo-subtext">Blog Literario</p>
+                    </div>
+                </a>
+            </div>
+    
+            <nav class="navbar">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#hero" class="nav-link">Inicio</a></li>
+                    <li class="nav-item"><a href="#story" class="nav-link">El Cuento</a></li>
+                    <li class="nav-item"><a href="#analysis" class="nav-link">Análisis</a></li>
+                    <li class="nav-item"><a href="#author" class="nav-link">Sobre García Márquez</a></li>
+                    <li class="nav-item"><a href="#blog" class="nav-link">Blog</a></li>
                 </ul>
             </nav>
-            <button class="menu-toggle" aria-label="Toggle menu">
-                <i class="fas fa-bars"></i>
+    
+            <button class="menu-toggle" aria-label="Menú de navegación">
+                <i class="fas fa-bars menu-icon"></i>
             </button>
         </div>
     </header>
@@ -60,11 +70,13 @@
                 <p class="section-subtitle">Una adaptación audiovisual del relato de García Márquez</p>
         
                 <div class="video-container">
-                    <!-- Video embed (reemplaza el ID de YouTube) -->
                     <div class="video-wrapper">
-                        <iframe id="storyVideo" src="https://www.youtube.com/embed/VIDEO_ID?enablejsapi=1" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
+                        <!-- Reproductor de video HTML5 -->
+                        <video id="localVideo" width="100%" height="auto" poster="/assets/image/video-poster.jpg">
+                            <source src="/assets/video/elahogado.mp4" type="video/mp4">
+                            Tu navegador no soporta el elemento de video.
+                        </video>
+        
                         <div class="video-overlay">
                             <button class="play-button" aria-label="Reproducir video">
                                 <i class="fas fa-play"></i>
@@ -73,19 +85,19 @@
                     </div>
         
                     <div class="video-controls">
-                        <button class="control-btn" id="captionsBtn" aria-label="Subtítulos">
-                            <i class="fas fa-closed-captioning"></i>
+                        <button class="control-btn" id="playPauseBtn" aria-label="Reproducir/Pausar">
+                            <i class="fas fa-play"></i>
+                        </button>
+                        <button class="control-btn" id="muteBtn" aria-label="Silenciar">
+                            <i class="fas fa-volume-up"></i>
                         </button>
                         <button class="control-btn" id="fullscreenBtn" aria-label="Pantalla completa">
                             <i class="fas fa-expand"></i>
                         </button>
+                        <div class="time-display">
+                            <span id="currentTime">00:00</span> / <span id="duration">00:00</span>
+                        </div>
                     </div>
-                </div>
-        
-                <div class="video-description">
-                    <p>Adaptación animada del cuento realizada por <strong>Estudios Macondo</strong> (2022). Duración: 12
-                        minutos.</p>
-                    <a href="#" class="video-link">Ver detrás de cámaras <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </section>
@@ -95,7 +107,11 @@
                 <h2>El Cuento</h2>
                 <article class="story">
                     <div class="story-image">
-                        <div class="image-placeholder"></div>
+                        <div class="image-placeholder">
+                            <img src="../assets/image/ahogado.jpg" alt="El ahogado más hermoso del mundo">
+                            <div class="image-overlay"></div>
+                            <div class="image-caption">
+                        </div>
                     </div>
                     <div class="story-content">
                         <p>Cuando los niños del pueblo vieron el promontorio oscuro y sigiloso que se acercaba por el
@@ -114,7 +130,11 @@
                             todas estuvieron de acuerdo en que sí, que se parecía a un Esteban.</p>
                     </div>
                 </article>
-                <a href="#" class="button read-more">Continuar leyendo...</a>
+
+                <div class="continuar">
+                    <a href="/page/cuento.html" class="button read-more">Continuar leyendo...</a>
+                </div>
+                
             </div>
         </section>
 
@@ -163,16 +183,17 @@
                     <article class="post-card">
                         <div class="post-image">
                             <div class="image-overlay"></div>
-                            <img src="realismo-magico.jpg" alt="Realismo mágico">
+                            <img src="../assets/image/orillas.jpg" alt="La escapada que casi no fue">
                             <div class="post-category">Análisis Literario</div>
                         </div>
                         <div class="post-content">
-                            <h3>El realismo mágico en "El Ahogado más Hermoso"</h3>
-                            <p class="post-excerpt">Cómo García Márquez mezcla lo cotidiano con lo fantástico para crear un
-                                símbolo de belleza y transformación colectiva...</p>
+                            <h3>La escapada que casi no fue</h3>
+                            <p class="post-excerpt">Un verano insoportable, tres amigas agotadas y un viaje que parecía imposible. Entre tareas, exámenes y caos
+                            estudiantil, logramos lo impensable: desconectarnos. Esta es la historia de cómo un pequeño pueblo costero se convirtió
+                            en nuestro refugio y nos recordó que a veces huir un rato es la mejor forma de encontrarnos.</p>
                             <div class="post-meta">
-                                <span class="post-date"><i class="far fa-calendar-alt"></i> 15 Oct, 2023</span>
-                                <a href="#" class="read-more">Leer más <i class="fas fa-arrow-right"></i></a>
+                                <span class="post-date"><i class="far fa-calendar-alt"></i> 24 abril, 2025</span>
+                                <a href="/page/post1.html" class="read-more">Leer más <i class="fas fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </article>
@@ -181,16 +202,17 @@
                     <article class="post-card">
                         <div class="post-image">
                             <div class="image-overlay"></div>
-                            <img src="simbolismo-mar.jpg" alt="Simbolismo del mar">
+                            <img src="../assets/image/ahogado.jpg" alt="Simbolismo del mar">
                             <div class="post-category">Simbolismo</div>
                         </div>
                         <div class="post-content">
-                            <h3>El mar como personaje simbólico</h3>
-                            <p class="post-excerpt">Análisis del mar como ente dador y destructor en la narrativa de García
-                                Márquez...</p>
+                            <h3>Cuando fuimos testigos de un milagro salado</h3>
+                            <p class="post-excerpt">Lo que empezó como unas vacaciones sin planes terminó en un suceso que no olvidaremos: un desconocido arrastrado por el
+                            mar, un pueblo que lo adoptó como suyo y un adiós lleno de poesía. Esta es la historia de Esteban, el hombre que llegó
+                            con las olas y nos enseñó a despedir sin conocer.</p>
                             <div class="post-meta">
-                                <span class="post-date"><i class="far fa-calendar-alt"></i> 2 Nov, 2023</span>
-                                <a href="#" class="read-more">Leer más <i class="fas fa-arrow-right"></i></a>
+                                <span class="post-date"><i class="far fa-calendar-alt"></i> 24 abril, 2025</span>
+                                <a href="/page/post2.html" class="read-more">Leer más <i class="fas fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </article>
@@ -199,16 +221,17 @@
                     <article class="post-card">
                         <div class="post-image">
                             <div class="image-overlay"></div>
-                            <img src="esteban-personaje.jpg" alt="Esteban el ahogado">
+                            <img src="../assets/image/ataud.jpg" alt="Esteban el ahogado">
                             <div class="post-category">Personajes</div>
                         </div>
                         <div class="post-content">
-                            <h3>Esteban: ¿Cristo fálico o espejo social?</h3>
-                            <p class="post-excerpt">La dualidad del ahogado como figura mesiánica y objeto de deseo en el
-                                imaginario del pueblo...</p>
+                            <h3>Esteban, el mar y lo que dejamos allá</h3>
+                            <p class="post-excerpt">Volver a la ciudad no borró lo que vivimos. Esteban, real o imaginado, se quedó con nosotras como un recuerdo que no se
+                            puede empacar. Esta es la historia de cómo un encuentro inesperado cambió nuestra forma de ver el mar, el silencio… y la
+                            vida.</p>
                             <div class="post-meta">
-                                <span class="post-date"><i class="far fa-calendar-alt"></i> 20 Dic, 2023</span>
-                                <a href="#" class="read-more">Leer más <i class="fas fa-arrow-right"></i></a>
+                                <span class="post-date"><i class="far fa-calendar-alt"></i> 24 abril, 2025</span>
+                                <a href="/page/post3.html" class="read-more">Leer más <i class="fas fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </article>
@@ -225,7 +248,11 @@
                 <h2>Sobre Gabriel García Márquez</h2>
                 <div class="author-content">
                     <div class="author-image">
-                        <div class="image-placeholder"></div>
+                        <div class="image-placeholder">
+                            <img src="/assets/image/gabriela.jpg" alt="Gabriel García Márquez">
+                            <div class="image-overlay"></div>
+                            <div class="image-caption">
+                        </div>
                     </div>
                     <div class="author-text">
                         <p>Gabriel García Márquez (1927-2014) fue un escritor, guionista, editor y periodista
@@ -276,7 +303,7 @@
 
     <!-- Audio Elements -->
     <audio id="wavesSound" loop>
-        <source src="waves.mp3" type="audio/mpeg">
+        <source src="/assets/sound/mar.MP3" type="audio/mpeg">
         Tu navegador no soporta audio HTML5.
     </audio>
     
@@ -294,6 +321,40 @@
 
     <script src="js/main.js"></script>
     <script src="https://www.youtube.com/iframe_api"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+                const menuToggle = document.querySelector('.menu-toggle');
+                const navbar = document.querySelector('.navbar');
+                const menuIcon = document.querySelector('.menu-icon');
+
+                menuToggle.addEventListener('click', function () {
+                    navbar.classList.toggle('active');
+                    menuIcon.classList.toggle('fa-bars');
+                    menuIcon.classList.toggle('fa-times');
+                });
+
+                // Cerrar menú al hacer clic en un enlace
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.addEventListener('click', function () {
+                        if (navbar.classList.contains('active')) {
+                            navbar.classList.remove('active');
+                            menuIcon.classList.remove('fa-times');
+                            menuIcon.classList.add('fa-bars');
+                        }
+                    });
+                });
+
+                // Efecto de scroll
+                window.addEventListener('scroll', function () {
+                    const header = document.querySelector('header');
+                    if (window.scrollY > 50) {
+                        header.classList.add('scrolled');
+                    } else {
+                        header.classList.remove('scrolled');
+                    }
+                });
+            });// Fin de la función de espera
+    </script>
 </body>
 
 </html>
